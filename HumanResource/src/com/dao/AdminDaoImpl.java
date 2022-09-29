@@ -33,7 +33,7 @@ public class AdminDaoImpl implements AdminDao{
 				
 				String n = rs.getString("name");
 				
-				message = "Welcome" + n;
+				message = "Welcome " + n;
 				
 			}
 			else {
