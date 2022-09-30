@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 import com.dao.AdminDao;
 import com.dao.AdminDaoImpl;
-import com.exception.AdminException;
+import com.exception.employeeException;
 
-public class AdminLogin {
 
-	public static void admin() {
+public class EmployeeLogin {
+	
+	public static void employee() {
 		
-		Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter you email..");
 		String email = sc.next();
@@ -22,15 +23,16 @@ public class AdminLogin {
 		AdminDao dao = new AdminDaoImpl();
 		
 		try {
-			String str = dao.LoginAdmin(email, password);
+			String str = dao.LoginEmployee(email, password);
 			
 			System.out.println(str);
 		}
-		 catch(AdminException am) {
+		 catch(employeeException am) {
 			 
 			 System.out.println(am.getMessage());
 		 }
 
 	}
+	}
 
-}
+

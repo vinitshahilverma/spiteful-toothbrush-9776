@@ -86,14 +86,14 @@ public class AdminDaoImpl implements AdminDao{
 		try(Connection conn = DBUtil.provideConnection()){
 
 			PreparedStatement ps = conn.prepareStatement
-					("Select * from employee where email=? AND password = ?");
+					("select * from employee where email=? AND password =?");
 			
 			 ps.setString(1, email);
-			 ps.setString(2,password);
+			 ps.setString(2, password);
 			 
 			 ResultSet rs = ps.executeQuery();
 			 
-			 if(rs!=null) {
+			 if(rs.next()) {
 				 
 				 String name = rs.getString("ename");
 				 
@@ -107,7 +107,7 @@ public class AdminDaoImpl implements AdminDao{
 			 }
 				
 			}catch(SQLException e) {
-							
+
 				throw new employeeException(e.getMessage());
 				
 			}
@@ -125,7 +125,7 @@ public class AdminDaoImpl implements AdminDao{
 		try(Connection conn = DBUtil.provideConnection()){
 			
 			PreparedStatement ps = conn.prepareStatement
-					("Insert into insert into department values(?,?,?)");
+					("Insert into department values(?,?,?)");
 			
 			ps.setInt(1, department.getId());
 			ps.setString(2,department.getDname());
@@ -157,7 +157,7 @@ public class AdminDaoImpl implements AdminDao{
 			
 			ResultSet rs = ps.executeQuery();
 			
-			while(rs!=null) {
+			while(rs.next()) {
 				
 				int deptId = rs.getInt("deptId");
 				String dname = rs.getString("dname");
@@ -244,9 +244,12 @@ public class AdminDaoImpl implements AdminDao{
 			PreparedStatement ps = conn.prepareStatement
 					("Select * from employee where email=? AND password=?");
 			
+			 ps.setString(1,email);
+			 ps.setString(2, password);
+			
 			ResultSet rs = ps.executeQuery();
 			
-			if(rs!=null) {
+			if(rs.next()) {
 		         int id = rs.getInt("eid");
 		         String ename = rs.getString("ename");
 		         String e = rs.getString("email");
