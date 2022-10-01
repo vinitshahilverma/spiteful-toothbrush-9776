@@ -8,7 +8,9 @@ import com.exception.AdminException;
 
 public class AdminLogin {
 
-	public static void admin() {
+	public static String admin() {
+		
+		String str = "Something went wrong...";
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -22,15 +24,15 @@ public class AdminLogin {
 		AdminDao dao = new AdminDaoImpl();
 		
 		try {
-			String str = dao.LoginAdmin(email, password);
+			 str = dao.LoginAdmin(email, password);
 			
-			System.out.println(str);
 		}
 		 catch(AdminException am) {
 			 
-			 System.out.println(am.getMessage());
+			 str = am.getMessage();
 		 }
-
+      
+		return str;
 	}
 
 }

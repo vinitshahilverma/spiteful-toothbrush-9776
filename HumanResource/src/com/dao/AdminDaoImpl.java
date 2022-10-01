@@ -58,6 +58,14 @@ public class AdminDaoImpl implements AdminDao {
 		String message = "Employee not regestered...";
 
 		try (Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps1  = conn.prepareStatement
+					("select * from department where deptId = ?");
+			ps1.setInt(1,employee.getDepartment());
+			
+			ResultSet rs = ps1.executeQuery();
+			
+			if(rs.next()) {
 
 			PreparedStatement ps = conn
 					.prepareStatement("insert into employee (ename,email,password,deptId) values(?,?,?,?)");
@@ -71,10 +79,11 @@ public class AdminDaoImpl implements AdminDao {
 
 			if (x > 0) {
 				message = "Employee registerd successfully";
-			} else {
-				throw new DepartmentException("Department not found");
+			} 
+		}
+			else {
+				throw new DepartmentException("Department not found..");
 			}
-
 		} catch (SQLException e) {
 			throw new DepartmentException(e.getMessage());
 		}
@@ -258,13 +267,14 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public Employee viewDetails(String email, String password) throws employeeException {
+	public FullDeatilsOfemployees viewDetails(String email, String password) throws employeeException {
 
-		Employee employee;
+		FullDeatilsOfemployees employee;
 
 		try (Connection conn = DBUtil.provideConnection()) {
 
-			PreparedStatement ps = conn.prepareStatement("Select * from employee where email=? AND password=?");
+			PreparedStatement ps = conn.prepareStatement
+					("select e.eid,e.ename,e.email,e.password,e.deptid,d.dname,d.dlocation from employee e  Inner Join department d ON e.deptId=d.deptId where email = ? AND password =?");
 
 			ps.setString(1, email);
 			ps.setString(2, password);
@@ -272,22 +282,26 @@ public class AdminDaoImpl implements AdminDao {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
+				
 				int id = rs.getInt("eid");
 				String ename = rs.getString("ename");
 				String e = rs.getString("email");
 				String p = rs.getString("password");
 				int did = rs.getInt("deptId");
-
-				employee = new Employee(id, ename, e, p, did);
+				String dname = rs.getString("dname");
+				String l = rs.getString("dlocation");
+                
+				employee = new FullDeatilsOfemployees(id, ename, e, p, did,dname,l);
 			} else {
+				
 				throw new employeeException("Employee not found...");
 			}
 		} catch (SQLException e) {
-
+			
 			throw new employeeException(e.getMessage());
 		}
 
-		return employee;
+		return employee; 
 	}
 
 	@Override
@@ -298,7 +312,7 @@ public class AdminDaoImpl implements AdminDao {
 		try (Connection conn = DBUtil.provideConnection()) {
 
 			PreparedStatement ps = conn
-					.prepareStatement("update employee set password = ? where ename = ? AND Eid = ?;");
+					.prepareStatement("update employee set password = ? where ename = ? AND Eid = ?");
 
 			ps.setString(1, newPassword);
 			ps.setString(2, ename);
@@ -308,6 +322,8 @@ public class AdminDaoImpl implements AdminDao {
 
 			if (x > 0) {
 				message = "Password updated successfuly";
+			}else {
+				throw new employeeException("Employee not found");
 			}
 
 		} catch (SQLException se) {
@@ -392,8 +408,9 @@ public class AdminDaoImpl implements AdminDao {
 		try(Connection conn = DBUtil.provideConnection()){
 			  
 			PreparedStatement ps = conn.prepareStatement
-					("Select * from employee where eid = ?");
+					("Select * from employee where eid = ? AND ename =?");
 			ps.setInt(1, id);
+			ps.setString(2, name);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -440,7 +457,7 @@ public class AdminDaoImpl implements AdminDao {
 		try(Connection conn = DBUtil.provideConnection()){
 			
 			PreparedStatement ps = conn.prepareStatement
-					(" select e.eid,e.ename,e.email,e.password,e.deptid,d.dname,d.dlocation,l.numberOfDays,l.leavestatus from employee e  Inner Join department d Inner Join Leave_status l ON e.deptid = d.deptid And l.eid = e.eid");
+					("select e.eid,e.ename,e.email,e.password,e.deptid,d.dname,d.dlocation from employee e  Inner Join department d ON e.deptId=d.deptId");
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -453,10 +470,8 @@ public class AdminDaoImpl implements AdminDao {
 				int deptId = rs.getInt("deptId");
 				String dname = rs.getString("dname");
 				String dlocation = rs.getString("dlocation");
-				int days = rs.getInt("numberOfDays");
-				String status = rs.getString("leaveStatus");
-				
-				list.add(new FullDeatilsOfemployees(id,ename,email,password,deptId,dname,dlocation,days,status));
+			
+				list.add(new FullDeatilsOfemployees(id,ename,email,password,deptId,dname,dlocation));
 				
 			}
 			
@@ -471,6 +486,66 @@ public class AdminDaoImpl implements AdminDao {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public String changeEmail(String name, int id, String newEmail) throws employeeException {
+		String message = "Employee not found";
+
+		try (Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement
+					("update employee set email = ? where ename = ? AND Eid = ?");
+
+			ps.setString(1, newEmail);
+			ps.setString(2, name);
+			ps.setInt(3, id);
+
+			int x = ps.executeUpdate();
+
+			if (x > 0) {
+				message = "Email updated successfuly";
+			}
+			else {
+				throw new employeeException("Employee not found");
+			}
+
+		} catch (SQLException se) {
+
+			throw new employeeException(se.getMessage());
+		}
+
+		return message;
+	}
+
+	@Override
+	public String changeName(String email, int id, String newName) throws employeeException {
+		String message = "Employee not found";
+
+		try (Connection conn = DBUtil.provideConnection()) {
+
+			PreparedStatement ps = conn
+					.prepareStatement("update employee set ename = ? where email = ? AND Eid = ?");
+
+			ps.setString(1, newName);
+			ps.setString(2, email);
+			ps.setInt(3, id);
+
+			int x = ps.executeUpdate();
+
+			if (x > 0) {
+				message = "Name updated successfuly";
+			}
+			else {
+				throw new employeeException("Employee not found");
+			}
+
+		} catch (SQLException se) {
+
+			throw new employeeException(se.getMessage());
+		}
+
+		return message;
 	}
 
 }

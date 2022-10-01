@@ -27,9 +27,13 @@ public interface AdminDao {
 	
 	public String updateLeaveStatus(int id,String status)throws employeeException;
 	
-    public Employee viewDetails(String email,String password)throws employeeException;
+    public FullDeatilsOfemployees viewDetails(String email,String password)throws employeeException;
 	
 	public String changePassword(String name,int id,String newPassword)throws employeeException;
+	
+	public String changeEmail(String name,int id,String newEmail)throws employeeException;
+	
+	public String changeName(String email,int id,String newName)throws employeeException;
 	
 	public String ApplyLeave(int eid,String name,int days)throws employeeException;
 	

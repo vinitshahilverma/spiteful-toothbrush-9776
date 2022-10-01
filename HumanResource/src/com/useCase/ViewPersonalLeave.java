@@ -1,5 +1,6 @@
 package com.useCase;
 
+
 import java.util.Scanner;
 
 import com.bean.Leave;
@@ -33,6 +34,7 @@ public class ViewPersonalLeave {
 		} catch (employeeException | LeaveException e) {
 			System.out.println(e.getMessage());
 		}
+		
 		
 	}
 

@@ -3,6 +3,7 @@ package com.useCase;
 import java.util.Scanner;
 
 import com.bean.Employee;
+import com.bean.FullDeatilsOfemployees;
 import com.dao.AdminDao;
 import com.dao.AdminDaoImpl;
 import com.exception.employeeException;
@@ -22,14 +23,16 @@ public class EmployeeDetails {
 		AdminDao dao = new AdminDaoImpl();
 
 		try {
-			Employee emp = dao.viewDetails(email, password);
+			FullDeatilsOfemployees emp = dao.viewDetails(email, password);
 			
-			System.out.println("Employee name: "+emp.getName());
-			System.out.println("Employee id: "+emp.getId());
-			System.out.println("Employee email: "+emp.getEmail());
-			System.out.println("Employee password: "+emp.getPassword());
-			System.out.println("Employee  Departemnt Number: "+emp.getDepartment());
-			
+			System.out.println("Name: "+emp.getEname());
+			System.out.println("Employee Id: "+emp.getEid());
+			System.out.println("Email: "+emp.getEmail());
+			System.out.println("Password: "+emp.getPassword());
+			System.out.println("Department Id: "+emp.getDeptId());
+			System.out.println("Department Name: "+emp.getDname());
+			System.out.println("Department Location "+emp.getDlocation());
+		
 
 		} catch (employeeException e) {
 			System.out.println(e.getMessage());

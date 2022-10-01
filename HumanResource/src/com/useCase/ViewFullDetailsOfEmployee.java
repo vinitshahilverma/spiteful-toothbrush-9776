@@ -25,9 +25,7 @@ public class ViewFullDetailsOfEmployee {
 				System.out.println("Department id: "+f.getDeptId());
 				System.out.println("Department name: "+f.getDname());
 				System.out.println("Department location: "+f.getDlocation());
-				System.out.println("Number of leave Days: "+f.getLeaveDays());
-				System.out.println("Leave Status: "+f.getLeaveStatus());
-				
+	
 				System.out.println("============================================");
 				
 				

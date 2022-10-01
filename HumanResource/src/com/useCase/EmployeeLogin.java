@@ -9,7 +9,9 @@ import com.exception.employeeException;
 
 public class EmployeeLogin {
 	
-	public static void employee() {
+	public static String employee() {
+		
+		String str = "Something went Worng..";
 		
        Scanner sc = new Scanner(System.in);
 		
@@ -23,14 +25,15 @@ public class EmployeeLogin {
 		AdminDao dao = new AdminDaoImpl();
 		
 		try {
-			String str = dao.LoginEmployee(email, password);
+			 str = dao.LoginEmployee(email, password);
 			
-			System.out.println(str);
 		}
 		 catch(employeeException am) {
 			 
-			 System.out.println(am.getMessage());
+			 str = am.getMessage();
 		 }
+		
+		return str;
 
 	}
 	}

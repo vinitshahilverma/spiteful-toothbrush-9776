@@ -9,15 +9,13 @@ public class FullDeatilsOfemployees {
 	private int deptId;
 	private String dname;
 	private String dlocation;
-	private int leaveDays;
-	private String leaveStatus;
 
 	public FullDeatilsOfemployees() {
 
 	}
 
 	public FullDeatilsOfemployees(int eid, String ename, String email, String password, int deptId, String dname,
-			String dlocation, int leaveDays, String leaveStatus) {
+			String dlocation) {
 		super();
 		this.eid = eid;
 		this.ename = ename;
@@ -26,8 +24,6 @@ public class FullDeatilsOfemployees {
 		this.deptId = deptId;
 		this.dname = dname;
 		this.dlocation = dlocation;
-		this.leaveDays = leaveDays;
-		this.leaveStatus = leaveStatus;
 	}
 
 	public int getEid() {
@@ -86,28 +82,12 @@ public class FullDeatilsOfemployees {
 		this.dlocation = dlocation;
 	}
 
-	public int getLeaveDays() {
-		return leaveDays;
-	}
-
-	public void setLeaveDays(int leaveDays) {
-		this.leaveDays = leaveDays;
-	}
-
-	public String getLeaveStatus() {
-		return leaveStatus;
-	}
-
-	public void setLeaveStatus(String leaveStatus) {
-		this.leaveStatus = leaveStatus;
-	}
-
 	@Override
 	public String toString() {
 		return "FullDeatilsOfemployees [eid=" + eid + ", ename=" + ename + ", email=" + email + ", password=" + password
-				+ ", deptId=" + deptId + ", dname=" + dname + ", dlocation=" + dlocation + ", leaveDays=" + leaveDays
-				+ ", leaveStatus=" + leaveStatus + "]";
+				+ ", deptId=" + deptId + ", dname=" + dname + ", dlocation=" + dlocation + "]";
 	}
+
 	
 	
 }
