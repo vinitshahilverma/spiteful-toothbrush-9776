@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.bean.Employee;
 import com.dao.AdminDao;
 import com.dao.AdminDaoImpl;
+import com.exception.DepartmentException;
 
 public class AddEmployee {
 	
@@ -33,9 +34,18 @@ public class AddEmployee {
 		employee.setDepartment(deptId);
 		employee.setPassword(password);
 		
-		String str = dao.registerEmployee(employee);
+		String str;
+		try {
+			str = dao.registerEmployee(employee);
+			
+			System.out.println(str);
+		} catch (DepartmentException e) {
+		     
+			System.out.println(e.getMessage());
+			
+		}
 		
-		System.out.println(str);
+		
 		
 	}
 

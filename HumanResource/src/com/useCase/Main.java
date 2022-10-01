@@ -4,7 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-//          AdminLogin.admin();
+//            AdminLogin.admin();
+		 
 //            EmployeeLogin.employee();
 		
 //		       ViewDepartments.department();
@@ -14,7 +15,22 @@ public class Main {
 		
 //		       AddingDepartment.addDepartment();
 		
-		       AddEmployee.addEmployee();
+//		       AddEmployee.addEmployee();
+		
+//		       updateEmpDept.updateDept();
+		
+//               ChangeEmpPassword.changePassword();		
+		      
+//		   ApplyLeave.applyLeave();
+		
+//		ActionOnLeave.actionLeave();
+		
+//		ViewLeaveList.viewList();
+		
+//		ViewPersonalLeave.leave();
+		
+		  ViewFullDetailsOfEmployee.viewFullList();
+		
 	}
 
 }
