@@ -38,16 +38,17 @@ public class AddEmployee {
 			employee.setPassword(password);
 
 			String str = dao.registerEmployee(employee);
-
+			System.out.println("============================================");
 			System.out.println(str);
+			System.out.println("============================================");
 		} catch (DepartmentException e) {
-
+			System.out.println("============================================");
 			System.out.println(e.getMessage());
-
+			System.out.println("============================================");
 		} catch (InputMismatchException e) {
-
-			System.out.println("Please Enter right Input....");
-
+			System.out.println("============================================");
+			System.out.println("Please Enter valid Input....");
+			System.out.println("============================================");
 		}
 
 	}

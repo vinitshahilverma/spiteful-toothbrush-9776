@@ -28,13 +28,15 @@ public class AddingDepartment {
 			Department dept = new Department(deptId, name, location);
 
 			String str = dao.addDepartment(dept);
-
+			
+			System.out.println("============================================");
 			System.out.println(str);
+			System.out.println("============================================");
 
 		} catch (InputMismatchException e) {
-
-			System.out.println("Please Enter right Input....");
-
+			System.out.println("============================================");
+			System.out.println("Please Enter valid Input....");
+			System.out.println("============================================");
 		}
 
 	}

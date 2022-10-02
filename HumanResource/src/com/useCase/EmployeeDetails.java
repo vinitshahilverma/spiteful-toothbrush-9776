@@ -24,7 +24,7 @@ public class EmployeeDetails {
 
 		try {
 			FullDeatilsOfemployees emp = dao.viewDetails(email, password);
-
+			System.out.println("============================================");
 			System.out.println("Name: " + emp.getEname());
 			System.out.println("Employee Id: " + emp.getEid());
 			System.out.println("Email: " + emp.getEmail());
@@ -32,9 +32,11 @@ public class EmployeeDetails {
 			System.out.println("Department Id: " + emp.getDeptId());
 			System.out.println("Department Name: " + emp.getDname());
 			System.out.println("Department Location " + emp.getDlocation());
-
+			System.out.println("============================================");
 		} catch (employeeException e) {
+			System.out.println("============================================");
 			System.out.println(e.getMessage());
+			System.out.println("============================================");
 		}
 
 	}

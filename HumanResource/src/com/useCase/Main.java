@@ -1,5 +1,6 @@
 package com.useCase;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -30,10 +31,12 @@ public class Main {
 		while (true) {
 			System.out.println("======================================================");
 			System.out.println("Welcome to the Human Resource Management System....");
+			System.out.println("======================================================");
 			System.out.println("Enter 1 to Login as Admin");
 			System.out.println("Enter 2 to Login as Employee");
 
 			Scanner sc = new Scanner(System.in);
+			try {
 			int choice = sc.nextInt();
 
 			switch (choice) {
@@ -163,7 +166,9 @@ public class Main {
 				}
 
 			}
-
+			}catch(InputMismatchException e) {
+				System.out.println("Please enter valid Input..");
+			}
 		}
 
 	}

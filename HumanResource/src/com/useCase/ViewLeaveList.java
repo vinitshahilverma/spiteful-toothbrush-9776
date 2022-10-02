@@ -17,7 +17,8 @@ public class ViewLeaveList {
 			List<Leave> list = dao.showEmployeeLeave();
 
 			list.forEach(l -> {
-
+				System.out.println("============================================");
+				
 				System.out.println("Employee id: " + l.getId());
 				System.out.println("Employee name: " + l.getEname());
 				System.out.println("Leave applied for: " + l.getDays() + " Days");

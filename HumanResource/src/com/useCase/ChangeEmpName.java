@@ -27,17 +27,17 @@ public class ChangeEmpName {
 			AdminDao dao = new AdminDaoImpl();
 
 			String str = dao.changeName(email, id, name);
-
+			System.out.println("============================================");
 			System.out.println(str);
-
+			System.out.println("============================================");
 		} catch (employeeException e) {
-
+			System.out.println("============================================");
 			System.out.println(e.getMessage());
-
+			System.out.println("============================================");
 		} catch (InputMismatchException e) {
-
-			System.out.println("Please Enter right Input....");
-
+			System.out.println("============================================");
+			System.out.println("Please Enter valid Input....");
+			System.out.println("============================================");
 		}
 
 	}

@@ -17,7 +17,9 @@ public class ViewDepartments {
 			List<Department> list = dao.showDepartment();
 
 			list.forEach(d -> {
-
+				
+				System.out.println("============================================");
+				
 				System.out.println("Department id: " + d.getId());
 				System.out.println("Department name: " + d.getDname());
 				System.out.println("Department location: " + d.getLocation());

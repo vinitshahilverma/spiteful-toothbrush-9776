@@ -17,7 +17,9 @@ public class ViewFullDetailsOfEmployee {
 			List<FullDeatilsOfemployees> list = dao.showFullList();
 
 			list.forEach(f -> {
-
+                
+				System.out.println("============================================");
+				
 				System.out.println("Employee id: " + f.getEid());
 				System.out.println("Employee name: " + f.getEname());
 				System.out.println("Employee email: " + f.getEmail());
