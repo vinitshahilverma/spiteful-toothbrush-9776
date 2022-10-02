@@ -18,13 +18,13 @@ This project consist Admin and employees.They have One to many relationship.
 •	The Admin can add new departments.
 
 # Role of Admin
-1)Admin can add new Department.
-2)Admin can view Department.
-3)Admin can register new Employees and give them thier password.
-4)Admin can also transfer them to other Department.
-5)Admin can grant or deny employee leave request.
-6)Admin can view all employee details.
-7)Admin can view all the applied leave list.
+1) Admin can add new Department.
+2) Admin can view Department.
+3) Admin can register new Employees and give them thier password.
+4) Admin can also transfer them to other Department.
+5 )Admin can grant or deny employee leave request.
+6) Admin can view all employee details.
+7) Admin can view all the applied leave list.
 
 # Role of Employee
 1)Employee can view their details.
