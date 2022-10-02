@@ -8,14 +8,14 @@ This is a Individual and console based project.
 This project consist Admin and employees.They have One to many relationship.
 
 # The Primary Project goal consists of.
-•	 The Admin can register Employees in given Departments.
-•	 The Admin manages different Departments.
-•	 The Employee can modify their profile and apply for leave.
+1)	The Admin can register Employees in given Departments.
+2)	The Admin manages different Departments.
+3)	The Employee can modify their profile and apply for leave.
 
 # The system is available for managing employee and department details.
-•	 The Employees update their profile and apply for leave.
-•	 The Admin can add and transfer Employees among various departments.
-•	 The Admin can add new departments.
+1) The Employees update their profile and apply for leave.
+2) The Admin can add and transfer Employees among various departments.
+3) The Admin can add new departments.
 
 # Role of Admin
 1) Admin can add new Department.
