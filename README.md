@@ -2,12 +2,12 @@
 
 Human Resoure Management System 
 
-#Description
+#Description.
 Develop and Implement a Java Based Application for Globsyn to control and manage the records of the Employees and Departments for Human Resource Management.
 This is a Individual and console based project.
 This project consist Admin and employees.They have One to many relationship.
 
-#The Primary Project goal consists of:
+#The Primary Project goal consists of.
 •	The Admin can register Employees in given Departments.
 •	The Admin manages different Departments.
 •	The Employee can modify their profile and apply for leave.
