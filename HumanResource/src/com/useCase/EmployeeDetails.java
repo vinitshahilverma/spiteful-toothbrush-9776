@@ -24,15 +24,14 @@ public class EmployeeDetails {
 
 		try {
 			FullDeatilsOfemployees emp = dao.viewDetails(email, password);
-			
-			System.out.println("Name: "+emp.getEname());
-			System.out.println("Employee Id: "+emp.getEid());
-			System.out.println("Email: "+emp.getEmail());
-			System.out.println("Password: "+emp.getPassword());
-			System.out.println("Department Id: "+emp.getDeptId());
-			System.out.println("Department Name: "+emp.getDname());
-			System.out.println("Department Location "+emp.getDlocation());
-		
+
+			System.out.println("Name: " + emp.getEname());
+			System.out.println("Employee Id: " + emp.getEid());
+			System.out.println("Email: " + emp.getEmail());
+			System.out.println("Password: " + emp.getPassword());
+			System.out.println("Department Id: " + emp.getDeptId());
+			System.out.println("Department Name: " + emp.getDname());
+			System.out.println("Department Location " + emp.getDlocation());
 
 		} catch (employeeException e) {
 			System.out.println(e.getMessage());

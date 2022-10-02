@@ -1,12 +1,12 @@
 package com.bean;
 
 public class Admin {
-	
+
 	private int id;
 	private String name;
 	private String email;
 	private String password;
-	
+
 	public Admin() {
 		super();
 	}
@@ -55,9 +55,5 @@ public class Admin {
 		this.email = email;
 		this.password = password;
 	}
-	
-	
-	
-	
 
 }

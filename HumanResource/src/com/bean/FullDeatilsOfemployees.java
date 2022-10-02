@@ -88,6 +88,4 @@ public class FullDeatilsOfemployees {
 				+ ", deptId=" + deptId + ", dname=" + dname + ", dlocation=" + dlocation + "]";
 	}
 
-	
-	
 }
